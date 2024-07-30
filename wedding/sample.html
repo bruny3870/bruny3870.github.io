@@ -93,7 +93,25 @@
       <div>
         오시는길
       </div>
-      <div id="map" style="width:90%; height:300px; margin: 0 auto;"></div>
+      <!-- * 카카오맵 - 지도퍼가기 -->
+      <!-- 1. 지도 노드 -->
+      <div id="daumRoughmapContainer1722322434372" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+      <!--
+        2. 설치 스크립트
+        * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+      -->
+      <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+      <!-- 3. 실행 스크립트 -->
+      <script charset="UTF-8">
+        new daum.roughmap.Lander({
+          "timestamp" : "1722322434372",
+          "key" : "2k7vm",
+          "mapWidth" : "300",
+          "mapHeight" : "300"
+        }).render();
+      </script>
     </div>
 
     <div>
@@ -109,32 +127,6 @@
   
   <script>
     
-  </script>
-
-  <!-- kakao map -->
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=551c0c1f2837478f3d500845979e96ee"></script>
-  <script>
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-        mapOption = { 
-            center: new kakao.maps.LatLng(35.9072, 128.607), // 지도의 중심좌표
-            level: 3 // 지도의 확대 레벨
-        };
-    
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-    
-    // 마커가 표시될 위치입니다 
-    var markerPosition  = new kakao.maps.LatLng(35.9072, 128.607); 
-    
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-        position: markerPosition
-    });
-    
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-    
-    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-    // marker.setMap(null);    
   </script>
 
 </body>
