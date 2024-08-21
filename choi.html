@@ -16,8 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
-        rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
     <!-- SimpleLightbox plugin CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap) -->
@@ -30,7 +29,7 @@
         }
 
         .carousel-indicators button {
-            width: max-content!important;
+            width: max-content !important;
             margin-bottom: 6%;
         }
 
@@ -40,10 +39,12 @@
             margin-right: 6%;
         }
     </style>
+
 </head>
+
 <body id="page-top">
     <!-- Masthead -->
-    <header class="masthead">
+    <header class="masthead vh-100">
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-8 align-self-end">
@@ -58,6 +59,7 @@
             </div>
         </div>
     </header>
+
     <!-- About -->
     <section class="page-section">
         <div class="container px-4 px-lg-5">
@@ -84,8 +86,13 @@
             </div>
         </div>
     </section>
+
     <!-- Carousel -->
     <section class="page-section py-0">
+        <div class="text-center">
+            <h1 class="fw-bold">갤러리</h1>
+            <hr class="divider" />
+        </div>
         <div id="carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -161,11 +168,13 @@
             </button>
         </div>
     </section>
+
     <!-- Calender -->
     <section class="page-section">
         <div class="container px-4 px-lg-5">
             <div class="text-center">
                 <h1 class="fw-bold">11월</h1>
+                <hr class="divider" />
             </div>
             <table class="calender">
                 <thead>
@@ -229,126 +238,77 @@
             </table>
         </div>
     </section>
+
     <!-- Directions -->
     <section class="page-section py-0">
         <div class="container px-4 px-lg-5">
             <div class="text-center">
                 <h1 class="fw-bold">오시는길</h1>
+                <hr class="divider" />
+                <p>노비아갈라웨딩 전자관점</p>
+                <p>대구광역시 북구 유통단지로 45 (산격동 1621) [4층 주차장 5층 예식장]</p>
+                <p>Tel. 053-640-1900</p>
+                <p>ezone.noviagala.co.kr</p>
             </div>
         </div>
-        <!--
-            * 카카오맵 - 약도서비스
-            * 한 페이지 내에 약도를 2개 이상 넣을 경우에는
-            * 약도의 수 만큼 소스를 새로 생성, 삽입해야 합니다.
-        -->
-        <!-- 1. 약도 노드 -->
-        <div id="daumRoughmapContainer1724198054760" class="root_daum_roughmap root_daum_roughmap_landing" style="width: 100%; margin: 0 auto;"></div>
-
-        <!-- 2. 설치 스크립트 -->
-        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-
-        <!-- 3. 실행 스크립트 -->
-        <script charset="UTF-8">
-            new daum.roughmap.Lander({
-                "timestamp" : "1724198054760",
-                "key" : "2kedr",
-                "mapHeight" : "360"
-            }).render();
-        </script>
+        <div style="display: flex; justify-content: center;">
+            <div style="font: 12px AppleSDGothicNeo-Regular, dotum, sans-serif; letter-spacing: -1px; width: 360px; height: 272px; color: rgb(51, 51, 51); position: relative;">
+                <div style="height: 240px;">
+                    <a href="https://map.kakao.com/?urlX=862721&amp;urlY=672211&amp;itemId=697291287&amp;q=%EB%85%B8%EB%B9%84%EC%95%84%EA%B0%88%EB%9D%BC%EC%9B%A8%EB%94%A9%20%EC%A0%84%EC%9E%90%EA%B4%80%EC%A0%90&amp;srcid=697291287&amp;map_type=TYPE_MAP&amp;from=roughmap" target="_blank">
+                        <img class="map" src="http://t1.daumcdn.net/roughmap/imgmap/415e9cf289a97195a827db77e1a8c35b46d264f2b67c01228b99603c7c3d3502" width="358" height="238" style="border: 1px solid rgb(204, 204, 204);">
+                    </a>
+                </div>
+                <div style="overflow: hidden; padding: 7px 11px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 0px 0px 2px 2px; background-color: rgb(249, 249, 249);">
+                    <div style="float: right; position: relative; top: 1px; font-size: 11px;">
+                        <a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;srcid=697291287&amp;confirmid=697291287&amp;q=%EB%85%B8%EB%B9%84%EC%95%84%EA%B0%88%EB%9D%BC%EC%9B%A8%EB%94%A9%20%EC%A0%84%EC%9E%90%EA%B4%80%EC%A0%90&amp;rv=on" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">로드뷰</a>
+                        <span style="width: 1px;padding: 0;margin: 0 8px 0 9px;height: 11px;vertical-align: top;position: relative;top: 2px;border-left: 1px solid #d0d0d0;float: left;"></span>
+                        <a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;eName=%EB%85%B8%EB%B9%84%EC%95%84%EA%B0%88%EB%9D%BC%EC%9B%A8%EB%94%A9%20%EC%A0%84%EC%9E%90%EA%B4%80%EC%A0%90&amp;eX=862721&amp;eY=672211" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">길찾기</a>
+                        <span style="width: 1px;padding: 0;margin: 0 8px 0 9px;height: 11px;vertical-align: top;position: relative;top: 2px;border-left: 1px solid #d0d0d0;float: left;"></span>
+                        <a target="_blank" href="https://map.kakao.com?map_type=TYPE_MAP&amp;from=roughmap&amp;srcid=697291287&amp;itemId=697291287&amp;q=%EB%85%B8%EB%B9%84%EC%95%84%EA%B0%88%EB%9D%BC%EC%9B%A8%EB%94%A9%20%EC%A0%84%EC%9E%90%EA%B4%80%EC%A0%90&amp;urlX=862721&amp;urlY=672211" style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">지도 크게 보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container p-4">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <div class="mb-3">
+                        <p class="fw-bold">주차</p>
+                        <p>노비아갈라웨딩 전자관점 4층 주차장</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold">버스</p>
+                        <p>간선 : 300 | 304 | 306 | 323 | 323-1 | 349
+                            <br>413 | 503 | 653 | 937</p>
+                        <p>순환 : 순환2 | 순환2-1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- Contact -->
-    <section class="page-section" id="contact">
+
+    <section class="page-section">
         <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 col-xl-6 text-center">
-                    <h2 class="mt-0">Let's Get In Touch!</h2>
-                    <hr class="divider" />
-                    <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will
-                        get back to you as soon as possible!</p>
-                </div>
-            </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-                <div class="col-lg-6">
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- * * SB Forms Contact Form * *-->
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
-                    <!-- To make this form functional, sign up at-->
-                    <!-- https://startbootstrap.com/solution/contact-forms-->
-                    <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <!-- Name input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."
-                                data-sb-validations="required" />
-                            <label for="name">Full name</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="email" type="email" placeholder="name@example.com"
-                                data-sb-validations="required,email" />
-                            <label for="email">Email address</label>
-                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                        </div>
-                        <!-- Phone number input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
-                                data-sb-validations="required" />
-                            <label for="phone">Phone number</label>
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
-                            </div>
-                        </div>
-                        <!-- Message input-->
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" type="text"
-                                placeholder="Enter your message here..." style="height: 10rem"
-                                data-sb-validations="required"></textarea>
-                            <label for="message">Message</label>
-                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
-                            </div>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a
-                                    href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">Error sending message!</div>
-                        </div>
-                        <!-- Submit Button-->
-                        <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton"
-                                type="submit">Submit</button></div>
-                    </form>
-                </div>
-            </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                    <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                    <div>+1 (555) 123-4567</div>
-                </div>
+            <div class="text-center">
+                <h1 class="fw-bold">마음 전하는 곳</h1>
+                <hr class="divider" />
+                <p>신랑</p>
+                <p>국민은행 예금주:유재훈</p>
+                <p id="num1">126302-04-176661</p><button onclick="copy('num1');">복사</button>
+                <p>신부</p>
+                <p>카카오뱅크 예금주:최가희</p>
+                <p id="num2">3333-08-9454829</p><button onclick="copy('num2');">복사</button>
             </div>
         </div>
     </section>
+
     <!-- Footer-->
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">Copyright &copy; 2023 - Company Name</div>
         </div>
     </footer>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SimpleLightbox plugin JS-->
@@ -360,5 +320,17 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+        function copy(id) {
+            const copy = document.getElementById(id);
+            const number = copy.textContent || copy.innerText;
+
+            navigator.clipboard.writeText(number)
+                .then(function() {
+                    alert("복사되었습니다");
+                });
+
+        }
+    </script>
 </body>
 </html>
