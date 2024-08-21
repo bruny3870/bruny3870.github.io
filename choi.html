@@ -285,21 +285,20 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8">
                     <div class="mb-3">
-                        <p class="fw-bold">노비아갈라웨딩 전자관점</p>
+                        <h3 class="fw-bold">노비아갈라웨딩 전자관점</h3>
                         <p>대구광역시 북구 유통단지로 45 (산격동 1621)<br>[4층 주차장 5층 예식장]</p>
-                        <p>Tel. 053-640-1900</p>
-                        <p>ezone.noviagala.co.kr</p>
+                        <p><a href="tel:053-640-1900">Tel. 053-640-1900</a></p>
+                        <p><a href="https://ezone.noviagala.co.kr">ezone.noviagala.co.kr</a></p>
                     </div>
                     <hr>
                     <div class="mb-3">
-                        <p class="fw-bold">주차</p>
+                        <h5 class="fw-bold">주차</h5>
                         <p>노비아갈라웨딩 전자관점 4층 주차장</p>
                     </div>
                     <hr>
                     <div class="mb-3">
-                        <p class="fw-bold">버스</p>
-                        <p>간선 : 300 | 304 | 306 | 323 | 323-1 | 349
-                            <br>413 | 503 | 653 | 937</p>
+                        <h5 class="fw-bold">버스</h5>
+                        <p>간선 : 300 | 304 | 306 | 323 | 323-1 | 349 | <br> 413 | 503 | 653 | 937</p>
                         <p>순환 : 순환2 | 순환2-1</p>
                     </div>
                     <hr>
@@ -358,8 +357,33 @@
                     <button type="submit" id="insert">등록하기</button>
                 </form>
                 <div id="guestbookList">
-                    <!-- guestbookList -->
-                     
+                    <div class="entry">
+                        <div class="d-flex align-items-center">
+                            <span class="pe-2 fw-bold">오중호</span>
+                            <small class="text-secondary">2024.08.22</small>
+                        </div>
+                        <span>축하드립니다</span>
+                        <button type="button" class="delete" data-index="${index}" data-bs-toggle="modal" data-bs-target="#exampleModal">삭제</button>
+                        <hr>
+                    </div>
+                    <div class="entry">
+                        <div class="d-flex align-items-center">
+                            <span class="pe-2 fw-bold">태스트1</span>
+                            <small class="text-secondary">2024.08.22</small>
+                        </div>
+                        <span>테스트1</span>
+                        <button type="button" class="delete" data-index="${index}" data-bs-toggle="modal" data-bs-target="#exampleModal">삭제</button>
+                        <hr>
+                    </div>
+                    <div class="entry">
+                        <div class="d-flex align-items-center">
+                            <span class="pe-2 fw-bold">태스트2</span>
+                            <small class="text-secondary">2024.08.22</small>
+                        </div>
+                        <span>테스트2</span>
+                        <button type="button" class="delete" data-index="${index}" data-bs-toggle="modal" data-bs-target="#exampleModal">삭제</button>
+                        <hr>
+                    </div>
                 </div>
                 
                 <!-- modal -->
@@ -388,7 +412,7 @@
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">
-                <a onclick="">청첩장 주소 복사하기</a>
+                <a onclick="copyUrl()">청첩장 주소 복사하기</a>
             </div>
         </div>
     </footer>
@@ -414,115 +438,15 @@
                     alert("복사되었습니다");
                 });
         }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const guestbook = document.getElementById("guestbook");
-            const guestbookList = document.getElementById("guestbookList");
-            const del = document.getElementById("delete");
-            const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-            let itmeToDelete = null;
 
-            // 시간형식 변경 (24시간)
-            function getDate() {
-                const now = new Date();
-                return now.toLocaleString(
-                    'ko-KR', {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                        hour12: false  // 24시간 형식
-                    }
-                );
-            }
+        let url = window.location.href;
 
-            // 입력 이벤트
-            guestbook.addEventListener("submit", function(event) {
-                event.preventDefault();
-                const name = document.getElementById("name").value.trim();
-                const password = document.getElementById("password").value.trim();
-                const message = document.getElementById("message").value.trim();
-                const date = getDate();
-                
-                if (name && password && message) {
-                    const list = JSON.parse(localStorage.getItem("guestbookList")) || [];
-                    list.push({name, password, message, date});
-                    save(list);
-                    load();
-                    guestbook.reset();
-                }
-            });
-
-            // 삭제 버튼 클릭 시 모달 띄우기
-            guestbookList.addEventListener('click', function(event) {
-                if (event.target.classList.contains('delete')) {
-                    const index = event.target.getAttribute('data-index');
-                    itemToDelete = index;  // 삭제할 항목의 인덱스 저장
-                    deleteModal.show();  // 모달 띄우기
-                }
-            });
-
-            // 삭제 이벤트
-            document.getElementById('confirmDelete').addEventListener('click', function() {
-                const delPassword = document.getElementById('modalPassword').value.trim();
-
-                if (delPassword) {
-                    const list = JSON.parse(localStorage.getItem("guestbookList")) || [];
-                    const entry = list[itemToDelete];
-
-                    if (entry && entry.password === delPassword) {
-                        list.splice(itemToDelete, 1);  // 항목 삭제
-                        save(list);
-                        load();
-                        deleteModal.hide();  // 모달 숨기기
-                    } else {
-                        alert('비밀번호가 틀립니다.');  // 비밀번호가 틀린 경우 경고 메시지
-                    }
-                } else {
-                    alert('비밀번호를 입력해 주세요.');  // 비밀번호 입력이 없는 경우 경고 메시지
-                }
-            });
-
-            // 모달 닫힐 때 입력 필드 초기화
-            document.getElementById('deleteModal').addEventListener('hidden.bs.modal', function() {
-                document.getElementById('modalPassword').value = '';  // 비밀번호 입력 필드 초기화
-            });
-
-             // 저장
-             function save(list) {
-                localStorage.setItem("guestbookList", JSON.stringify(list));
-            }
-
-            // 불러오기
-            function load() {
-                const list = JSON.parse(localStorage.getItem("guestbookList")) || [];
-
-                // 정렬
-                list.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                guestbookList.innerHTML = "";
-                list.forEach((entry, index) => {
-                    const div = document.createElement("div");
-                    div.classList.add("entry");
-                    div.innerHTML = `
-                        <div class="d-flex align-items-center">
-                            <span class="pe-2 fw-bold">${entry.name}</span>
-                            <small class="text-secondary">${entry.date}</small>
-                        </div>
-                        <span>${entry.message}</span>
-                        <button type="button" class="delete" data-index="${index}" data-bs-toggle="modal" data-bs-target="#exampleModal">삭제</button>
-                        <hr>
-                    `;
-                    guestbookList.appendChild(div);
+        function copyUrl() {
+            navigator.clipboard.writeText(url)
+                .then(function() {
+                    alert("복사되었습니다");
                 });
-            }
-
-            // 페이지 로드시 리스트 출력
-            load();
-        });
+        }
     </script>
 </body>
 </html>
