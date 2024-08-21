@@ -48,6 +48,12 @@
             width: 100%;
             padding: 3%;
         }
+
+        #guestbookList {
+            max-height: 320px;
+            overflow-y: auto;
+            text-align: left;
+        }
     </style>
 
 </head>
@@ -331,24 +337,49 @@
         </div>
     </section>
 
-    <section class="page-section pt-0">
+    <section class="page-section p-0">
         <div class="container px-4 px-lg-5">
             <div class="text-center">
                 <h1 class="fw-bold">메세지</h1>
                 <hr class="divider" />
                 <p>축하 메세지를 남겨주세요</p>
-                <div class="d-flex justify-content-center">
-                    <div class="mx-1">
-                        <input type="text" placeholder="이름">
+                <form id="guestbook" class="p-3">
+                    <div class="d-flex justify-content-center">
+                        <div class="w-100 p-1">
+                            <input type="text" id="name" placeholder="이름" required>
+                        </div>
+                        <div class="w-100 p-1">
+                            <input type="password" id="password" placeholder="비밀번호" required>
+                        </div>
                     </div>
-                    <div class="mx-1">
-                        <input type="password" placeholder="비밀번호">
+                    <div class="w-100 p-1">
+                        <textarea name="message" id="message" required></textarea>
+                    </div>
+                    <button type="submit" id="insert">등록하기</button>
+                </form>
+                <div id="guestbookList">
+                    <!-- guestbookList -->
+                     
+                </div>
+                
+                <!-- modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">확인</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>이 항목을 삭제하시겠습니까?</p>
+                                <input type="password" id="modalPassword" placeholder="비밀번호" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="confirmDelete">삭제하기</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="m-1">
-                    <textarea name="" id=""></textarea>
-                </div>
-                <button>등록하기</button>
             </div>
         </div>
     </section>
@@ -357,7 +388,7 @@
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">
-                <a onclick="copy('www.naver.com');">청첩장 주소 복사하기</a>
+                <a onclick="">청첩장 주소 복사하기</a>
             </div>
         </div>
     </footer>
@@ -383,6 +414,115 @@
                     alert("복사되었습니다");
                 });
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const guestbook = document.getElementById("guestbook");
+            const guestbookList = document.getElementById("guestbookList");
+            const del = document.getElementById("delete");
+            const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+            let itmeToDelete = null;
+
+            // 시간형식 변경 (24시간)
+            function getDate() {
+                const now = new Date();
+                return now.toLocaleString(
+                    'ko-KR', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false  // 24시간 형식
+                    }
+                );
+            }
+
+            // 입력 이벤트
+            guestbook.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const name = document.getElementById("name").value.trim();
+                const password = document.getElementById("password").value.trim();
+                const message = document.getElementById("message").value.trim();
+                const date = getDate();
+                
+                if (name && password && message) {
+                    const list = JSON.parse(localStorage.getItem("guestbookList")) || [];
+                    list.push({name, password, message, date});
+                    save(list);
+                    load();
+                    guestbook.reset();
+                }
+            });
+
+            // 삭제 버튼 클릭 시 모달 띄우기
+            guestbookList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('delete')) {
+                    const index = event.target.getAttribute('data-index');
+                    itemToDelete = index;  // 삭제할 항목의 인덱스 저장
+                    deleteModal.show();  // 모달 띄우기
+                }
+            });
+
+            // 삭제 이벤트
+            document.getElementById('confirmDelete').addEventListener('click', function() {
+                const delPassword = document.getElementById('modalPassword').value.trim();
+
+                if (delPassword) {
+                    const list = JSON.parse(localStorage.getItem("guestbookList")) || [];
+                    const entry = list[itemToDelete];
+
+                    if (entry && entry.password === delPassword) {
+                        list.splice(itemToDelete, 1);  // 항목 삭제
+                        save(list);
+                        load();
+                        deleteModal.hide();  // 모달 숨기기
+                    } else {
+                        alert('비밀번호가 틀립니다.');  // 비밀번호가 틀린 경우 경고 메시지
+                    }
+                } else {
+                    alert('비밀번호를 입력해 주세요.');  // 비밀번호 입력이 없는 경우 경고 메시지
+                }
+            });
+
+            // 모달 닫힐 때 입력 필드 초기화
+            document.getElementById('deleteModal').addEventListener('hidden.bs.modal', function() {
+                document.getElementById('modalPassword').value = '';  // 비밀번호 입력 필드 초기화
+            });
+
+             // 저장
+             function save(list) {
+                localStorage.setItem("guestbookList", JSON.stringify(list));
+            }
+
+            // 불러오기
+            function load() {
+                const list = JSON.parse(localStorage.getItem("guestbookList")) || [];
+
+                // 정렬
+                list.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                guestbookList.innerHTML = "";
+                list.forEach((entry, index) => {
+                    const div = document.createElement("div");
+                    div.classList.add("entry");
+                    div.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <span class="pe-2 fw-bold">${entry.name}</span>
+                            <small class="text-secondary">${entry.date}</small>
+                        </div>
+                        <span>${entry.message}</span>
+                        <button type="button" class="delete" data-index="${index}" data-bs-toggle="modal" data-bs-target="#exampleModal">삭제</button>
+                        <hr>
+                    `;
+                    guestbookList.appendChild(div);
+                });
+            }
+
+            // 페이지 로드시 리스트 출력
+            load();
+        });
     </script>
 </body>
 </html>
