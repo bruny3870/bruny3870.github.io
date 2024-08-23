@@ -144,67 +144,67 @@
         </div>
         <swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="mySwiper" thumbs-swiper=".mySwiper2" loop="true" space-between="10" navigation="true">
             <swiper-slide>
-                <img src="./img/10.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/10.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/14.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/14.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/23.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/23.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/15.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/15.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/16.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/16.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/20.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/20.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/22.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/22.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/17.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/17.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/18.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/18.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/02.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/02.jpg" />
             </swiper-slide>
         </swiper-container>
     
         <swiper-container class="mySwiper2" loop="true" space-between="10" slides-per-view="4" free-mode="true" watch-slides-progress="true">
             <swiper-slide>
-                <img src="./img/10.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/10.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/14.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/14.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/23.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/23.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/15.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/15.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/16.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/16.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/20.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/20.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/22.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/22.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/17.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/17.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/18.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/18.jpg" />
             </swiper-slide>
             <swiper-slide>
-                <img src="./img/02.jpg" oncontextmenu="return false" style="-webkit-touch-callout:none" />
+                <img src="./img/02.jpg" />
             </swiper-slide>
         </swiper-container>
     </section>
@@ -518,12 +518,13 @@
                     alert("복사되었습니다");
                 });
         }
-    </script>
-    <script>
-        // 우측 버튼 비활성
-        $(document).bind("contextmenu", function(e) {
+
+        // 롱터치 금지
+        window.oncontextmenu = function(event) {
+            event.preventDefault();
+            event.stopPropagation();
             return false;
-        });
+        };
     </script>
 </body>
 </html>
