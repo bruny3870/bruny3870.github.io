@@ -23,20 +23,8 @@
     <link href="css/styles.css" rel="stylesheet" />
 
     <style>
-        .carousel-indicators img {
-            width: 60px;
-            display: block;
-        }
-
-        .carousel-indicators button {
-            width: max-content !important;
-            margin-bottom: 6%;
-        }
-
-        .carousel-indicators {
-            position: unset;
-            margin-left: 6%;
-            margin-right: 6%;
+        body {
+            -webkit-touch-callout:none;
         }
         
         .page-section input {
@@ -534,6 +522,12 @@
                     alert("복사되었습니다");
                 });
         }
+    </script>
+    <script>
+        // 우측 버튼 비활성
+        $(document).bind("contextmenu", function(e) {
+            return false;
+        });
     </script>
 </body>
 </html>
