@@ -1,10 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
 import { getDatabase, set, get, ref, remove } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyC58IrXKP-J4vMK4JR1BgkTq6Zhiy1x2uI",
     authDomain: "guestbook-8e5e5.firebaseapp.com",
@@ -137,12 +133,12 @@ function verifyPassword(num, inputPassword) {
         return get(dataRef).then(snapshot => {
             const data = snapshot.val();
             if (data) {
-                // Check if input password matches the stored password
+
                 if (data.pwd === inputPassword) {
                     return true;
                 }
             }
-            // Check if input password matches the master password
+
             if (inputPassword === masterPassword) {
                 return true;
             }
