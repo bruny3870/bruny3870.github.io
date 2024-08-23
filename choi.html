@@ -49,6 +49,55 @@
             padding: 3%;
         }
 
+        #btn {
+            border: 1px solid;
+            border-radius: 50px;
+        }
+
+        #btnModal {
+            border: 1px solid;
+            border-radius: 50px;
+            width: 300px;
+        }
+
+        swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mySwiper {
+            height: 40rem;
+            width: 30rem;
+        }
+
+        @media (max-width: 767px){
+            .mySwiper {
+                height: 30rem;
+                width: 100%;
+            }
+        }
+
+        .mySwiper2 {
+            padding: 10px 0;
+            width: 30rem;
+        }
+
+        @media (max-width: 767px){
+            .mySwiper2 {
+                width: 100%;
+            }
+        }
+
+        .mySwiper2 swiper-slide {
+            height: 5rem;
+            opacity: 0.4;
+        }
+
+        .mySwiper2 .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
         #guestbookList {
             max-height: 320px;
             overflow-y: auto;
@@ -69,7 +118,7 @@
                 </div>
                 <div class="col-lg-8 align-self-baseline">
                     <p class="mb-5 fw-bold">재훈 & 가희</p>
-                    <p class="mb-3 fw-bold">2024년 11월 09일 토요일 오전 11시</p>
+                    <p class="mb-3 fw-bold">2024년 11월 09일 토요일 오전 10시30분</p>
                     <p class="mb-5 fw-bold">노비아갈라웨딩 전자관점 5층</p>
                 </div>
             </div>
@@ -93,10 +142,10 @@
                     </p>
                     <hr class="divider" />
                     <p class="pt-4 mb-4">
-                        故유병진 · 도혜영 의 차남 유재훈
+                        故유병진 · 도혜영 <small>의 차남</small> 유재훈
                     </p>
                     <p class="mb-4">
-                        故최병석 · 남정임 의 장녀 최가희
+                        故최병석 · 남정임 <small>의 장녀</small> 최가희
                     </p>
                 </div>
             </div>
@@ -109,80 +158,75 @@
             <h1 class="fw-bold">갤러리</h1>
             <hr class="divider" />
         </div>
-        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./img/10.jpg" class="d-block w-100" alt="img1">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/14.jpg" class="d-block w-100" alt="img2">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/23.jpg" class="d-block w-100" alt="img3">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/15.jpg" class="d-block w-100" alt="img4">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/16.jpg" class="d-block w-100" alt="img5">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/20.jpg" class="d-block w-100" alt="img6">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/22.jpg" class="d-block w-100" alt="img7">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/17.jpg" class="d-block w-100" alt="img8">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/18.jpg" class="d-block w-100" alt="img9">
-                </div>
-                <div class="carousel-item">
-                    <img src="./img/02.jpg" class="d-block w-100" alt="img9">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <div class="carousel-indicators row">
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="0">
-                <img src="./img/10.jpg" alt="img1">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1">
-                <img src="./img/14.jpg" alt="img2">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2">
-                <img src="./img/23.jpg" alt="img3">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="3">
-                <img src="./img/15.jpg" alt="img4">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="4">
-                <img src="./img/16.jpg" alt="img5">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="5">
-                <img src="./img/20.jpg" alt="img6">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="6">
-                <img src="./img/22.jpg" alt="img7">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="7">
-                <img src="./img/17.jpg" alt="img8">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="8">
-                <img src="./img/18.jpg" alt="img9">
-            </button>
-            <button type="button" data-bs-target="#carousel" data-bs-slide-to="9">
-                <img src="./img/02.jpg" alt="img9">
-            </button>
-        </div>
+        <swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="mySwiper" thumbs-swiper=".mySwiper2" loop="true" space-between="10" navigation="true">
+            <swiper-slide>
+                <img src="./img/10.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/14.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/23.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/15.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/16.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/20.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/22.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/17.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/18.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/02.jpg" />
+            </swiper-slide>
+        </swiper-container>
+    
+        <swiper-container class="mySwiper2" loop="true" space-between="10" slides-per-view="4" free-mode="true" watch-slides-progress="true">
+            <swiper-slide>
+                <img src="./img/10.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/14.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/23.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/15.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/16.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/20.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/22.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/17.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/18.jpg" />
+            </swiper-slide>
+            <swiper-slide>
+                <img src="./img/02.jpg" />
+            </swiper-slide>
+        </swiper-container>
+    </section>
+
+    <section>
+        
     </section>
 
     <!-- Calender -->
@@ -287,8 +331,10 @@
                     <div class="mb-3">
                         <h3 class="fw-bold">노비아갈라웨딩 전자관점</h3>
                         <p>대구광역시 북구 유통단지로 45 (산격동 1621)<br>[4층 주차장 5층 예식장]</p>
-                        <p><a href="tel:053-640-1900">Tel. 053-640-1900</a></p>
-                        <p><a href="http://ezone.noviagala.co.kr">ezone.noviagala.co.kr</a></p>
+                        <p>Tel. 053-640-1900</p>
+                        <p>ezone.noviagala.co.kr</p>
+                        <button id="btn" class="btn me-1" onclick="location.href='tel:053-640-1900'">전화</button>
+                        <button id="btn" class="btn ms-1" onclick="location.href='http://mezone.noviagala.co.kr/'">홈페이지</button>
                     </div>
                     <hr>
                     <div class="mb-3">
@@ -300,7 +346,7 @@
                         <h5 class="fw-bold">버스</h5>
                         <p>300 | 304 | 306 | 323 | 
                         <br>323-1 | 349 | 413 | 503 |
-                        <br>653 | 937순환2 | 순환2-1 |</p>
+                        <br>653 | 937 | 순환2 | 순환2-1 |</p>
                     </div>
                     <hr>
                 </div>
@@ -313,23 +359,77 @@
             <div class="text-center">
                 <h1 class="fw-bold">마음 전하는 곳</h1>
                 <hr class="divider" />
-                <div class="py-3">
-                    <p>신랑</p>
-                    <p>국민은행 (예금주:유재훈)</p>
-                    <div class="d-flex justify-content-center">
-                        <p id="num1">126302-04-176661</p>
-                        <div class="px-2">
-                            <button onclick="copy('num1');">복사</button>
+                <div>
+                    <button type="button" id="btnModal" class="btn my-1" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                        신랑 측 계좌번호
+                    </button>
+                    <!-- modal -->
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="pb-5">
+                                        <p>신랑 계좌</p>
+                                        <hr>
+                                        <p>국민은행 (예금주:유재훈)</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <span id="num1">126302-04-176661</span>
+                                            <div>
+                                                <button class="btn" onclick="copy('num1');">복사</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pb-5">
+                                        <p>신랑혼주 계좌</p>
+                                        <hr>
+                                        <p>국민은행 (예금주:도혜영)</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <span id="num2">380210233236</span>
+                                            <div>
+                                                <button class="btn" onclick="copy('num2');">복사</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="py-3">
-                    <p>신부</p>
-                    <p>카카오뱅크 (예금주:최가희)</p>
-                    <div class="d-flex justify-content-center">
-                        <p id="num2">3333-08-9454829</p>
-                        <div class="px-2">
-                            <button onclick="copy('num2');">복사</button>
+                <div>
+                    <button type="button" id="btnModal" class="btn my-1" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        신부 측 계좌번호
+                    </button>
+                    <!-- modal -->
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="pb-5">
+                                        <p>신부 계좌</p>
+                                        <hr>
+                                        <p>카카오뱅크 (예금주:최가희)</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <span id="num3">3333-08-9454829</span>
+                                            <div>
+                                                <button class="btn" onclick="copy('num3');">복사</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pb-5">
+                                        <p>신부혼주 계좌</p>
+                                        <hr>
+                                        <p>농협 (예금주:남정임)</p>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <span id="num4">15008952109361</span>
+                                            <div>
+                                                <button class="btn" onclick="copy('num4');">복사</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="btnClose" class="btn" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -386,25 +486,6 @@
                         <hr>
                     </div>
                 </div>
-                
-                <!-- modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">확인</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>이 항목을 삭제하시겠습니까?</p>
-                                <input type="password" id="modalPassword" placeholder="비밀번호" required>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" id="confirmDelete">삭제하기</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -418,18 +499,22 @@
         </div>
     </footer>
 
-    <!-- Bootstrap core JS-->
+    <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- SimpleLightbox plugin JS-->
+    <!-- SimpleLightbox plugin JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-    <!-- Core theme JS-->
+    <!-- Core theme JS -->
     <script src="js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- * *                               SB Forms JS                               * * -->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * * -->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <!-- wiper JS-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
     <script>
+        //계좌 복사
         function copy(id) {
             const copy = document.getElementById(id);
             const number = copy.textContent || copy.innerText;
@@ -440,6 +525,7 @@
                 });
         }
 
+        // URL 링크 복사
         let url = window.location.href;
 
         function copyUrl() {
