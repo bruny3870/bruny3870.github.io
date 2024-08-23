@@ -94,7 +94,7 @@ function loadData() {
                 <small class="text-secondary">${date}</small>
             </div>
             <div class="d-flex align-items-center">
-                <span class="pe-2 fw-bold">${msg}</span>
+                <span class="pe-2">${msg}</span>
                 <button type="button" class="delete" onclick="setDeleteModal('${num}')" data-bs-toggle="modal" data-bs-target="#deleteModal">삭제</button>
             </div>
             <hr>
