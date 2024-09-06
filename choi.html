@@ -21,6 +21,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap) -->
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <style>
         .page-section input {
@@ -90,6 +91,48 @@
         .list {
             max-height: 430px;
             overflow-y: scroll;
+        }
+
+        /* 모달 기본 스타일 */
+        .modal {
+            display: none; /* 모달을 기본적으로 숨김 */
+            position: fixed;
+            z-index: 1000; /* 다른 요소들보다 위에 표시 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal img {
+            width: 100%;
+            height: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 
@@ -272,9 +315,11 @@
         </swiper-container>
     </section>
 
-    <section>
-        
-    </section>
+    <!-- 모달 구조 -->
+    <div id="myModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
 
     <!-- Calender -->
     <section class="page-section">
@@ -570,6 +615,41 @@
     <script>
         $(document).bind("contextmenu", function(e) {
             return false;
+        });
+    </script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Swiper 초기화
+        var swiper = new Swiper('.mySwiper', {
+            thumbs: {
+                swiper: '.mySwiper2',
+            },
+        });
+
+        // 모달 관련 코드
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+        var closeBtn = document.querySelector(".modal-close");
+
+        // 이미지 클릭 시 모달 열기
+        document.querySelectorAll('.swiper-slide img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            });
+        });
+
+        // 모달 닫기 버튼 클릭 시 모달 닫기
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
         });
     </script>
 </body>
