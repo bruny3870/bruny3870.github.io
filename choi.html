@@ -621,9 +621,12 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         // Swiper 초기화
-        var swiper = new Swiper('.mySwiper', {
-            thumbs: {
-                swiper: '.mySwiper2',
+        var swiper = new Swiper('.top-swiper', {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
         });
 
@@ -633,7 +636,7 @@
         var closeBtn = document.querySelector(".modal-close");
 
         // 이미지 클릭 시 모달 열기
-        document.querySelectorAll('.swiper-slide img').forEach(img => {
+        document.querySelectorAll('.top-swiper img').forEach(img => {
             img.addEventListener('click', function() {
                 modal.style.display = "block";
                 modalImg.src = this.src;
